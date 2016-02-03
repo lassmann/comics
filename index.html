@@ -1,14 +1,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" href="images/icon.png">
-    <title>Project Comic</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" href="images/icon.png">
+    <title>Comic Zone</title>
     <script src="css/bootstrap/js/bootstrap.js"></script>
+    <script src="js/jquery-1.12.0.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap-theme.css">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="css/bootstrap/js/bootstrap.js"></script>
     <script>
         if(typeof (Storage)!== "undefined"){
             localStorage.setItem('asdasda', 'asdasd')
@@ -18,58 +19,79 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Brand</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li class="active"></li>
-                    <li><a href="#" data-toggle="modal" data-target="#myModal">Link</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
-                </ul>
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Dropdown <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li><a href="#">Separated link</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
+    <img src="images/banner.jpg" id="banner">
 </header>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="pull-left" href="#"><img src="images/newBrand.png" ></a>
+        </div>
 
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">HOME</a></li>
+                <li><a href="#">CLASICS</a></li>
+                <li><a href="#">MANGA</a></li>
+                <li><a href="#">ANIME</a></li>
 
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"  data-toggle="modal" data-target="#myModal">Login</a></li>
+                <li><a href="#">Register</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
 
+<form class="form-inline">
+    <div class="form-group">
+        <label class="sr-only" for="user">Usernamame</label>
+        <div class="input-group">
+            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+            <input type="text" class="form-control" id="user" placeholder="Username">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="sr-only" for="pass">Pass</label>
+        <div class="input-group">
+            <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+            <input type="text" class="form-control" id="pass" placeholder="Pass">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+    <button type="submit" class="btn btn-primary">Cancel</button>
+</form>
+<form class="form-inline">
+    <div class="form-group">
+        <label class="sr-only" for="user">Amount (in dollars)</label>
+        <div class="input-group">
+            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+            <input type="text" class="form-control" id="user2" placeholder="Username">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="sr-only" for="pass">Amount (in dollars)</label>
+        <div class="input-group">
+            <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
+            <input type="text" class="form-control" id="pass1" placeholder="Pass">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="submit" class="btn btn-primary">Cancel</button>
+</form>
+
+<footer class="footer">
+    <div class="container">
+       <p class="text-muted"> Follow Us on Twiter and Facebook</p>
+       <p class="text-muted"> Contact us: AR: +54 11 4109 1700 | US: +1 877 215 5230 </p>
+    </div>
 <div class="modal fade" id="myModal" tabindex="-1">
     <div class="modal-dialog" >
         <div class="modal-content">
@@ -118,6 +140,8 @@
         </div>
     </div>
 </div>
+
+</footer>
 
 </body>
 </html>
