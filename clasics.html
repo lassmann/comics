@@ -4,7 +4,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="images/icon.png">
     <title>Comic Zone</title>
-    <script src="css/bootstrap/js/bootstrap.js"></script>
     <script src="js/jquery-1.12.0.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap-theme.css">
@@ -20,7 +19,7 @@
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -42,7 +41,20 @@
         </div>
     </div>
 </nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group">
+                <a href="" class="list-group-item">asd</a>
+                <a href="" class="list-group-item">das</a>
+                <a href="" class="list-group-item">dasdas</a>
+            </div>
+        </div>
+        <div class="col-md-9">
 
+        </div>
+    </div>
+</div>
 <!--Login Modal-->
 <div class="modal fade" id="login" tabindex="-1">
     <div class="modal-dialog">
@@ -52,35 +64,23 @@
                 <h4 class="modal-title" id="myModalLabel">Login</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" role="form">
+                <form onsubmit="login()">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label"
-                               for="inputEmail3">Email</label>
-                        <div class="col-sm-10">
-                            <input type="email" class="form-control"
-                                   id="inputEmail3" placeholder="Email"/>
-                        </div>
+                        <label for="username">Username</label>
+                        <input type="text" placeholder="Username" class="form-control" id="username">
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label"
-                               for="passRegister">Password</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control"
-                                   id="passRegister" placeholder="Password"/>
-                        </div>
+                        <label for="passLogin">Password</label>
+                        <input type="password" placeholder="Password" class="form-control" id="passLogin">
                     </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default" data-dismiss="modal">Sign in</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
+                    <button type="submit" class="btn btn-default">Login</button>
+                    <button type="reset" class="btn btn-primary" >Cancel</button>
                 </form>
             </div>
-
         </div>
     </div>
 </div>
+
 <!--Register Modal-->
 <div class="modal fade" id="register" tabindex="-1">
     <div class="modal-dialog">
@@ -90,44 +90,25 @@
                 <h4 class="modal-title" id="registerHeader">Register</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal" role="form">
+                <form onsubmit="register()">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label"
-                               for="registerUser">Username</label>
-                        <div class="col-sm-10">
-                            <input type="email" class="form-control"
-                                   id="registerUser" placeholder="Username"/>
-                        </div>
+                        <label for="userReg">Username</label>
+                        <input type="text" placeholder="Username" class="form-control" id="userReg">
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label"
-                               for="pass1">Password</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control"
-                                   id="pass1" placeholder="Password"/>
-                        </div>
+                        <label for="passReg">Password</label>
+                        <input type="password" placeholder="Password" class="form-control" id="passReg">
                     </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label"
-                               for="pass2">Password</label>
-                        <div class="col-sm-10">
-                            <input type="password" class="form-control"
-                                   id="pass2" placeholder="Password"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default" data-dismiss="modal">Register</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                        </div>
-                    </div>
+                    <button type="submit" class="btn btn-default">Login</button>
+                    <button type="reset" class="btn btn-primary" >Cancel</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
 <footer class="footer">
-    <div class="container">
+    <div class="container-fluid">
         <p class="text-muted"> Follow Us on Twiter and Facebook</p>
         <p class="text-muted"> Contact us: AR: +54 11 4109 1700 | US: +1 877 215 5230 </p>
     </div>
