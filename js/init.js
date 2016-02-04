@@ -1,5 +1,4 @@
 (function init(){
-
     if (typeof (Storage) !== "undefined") {
         (function init(){
             var users = [
