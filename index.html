@@ -10,12 +10,7 @@
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap-theme.css">
     <link rel="stylesheet" href="css/styles.css">
     <script src="css/bootstrap/js/bootstrap.js"></script>
-    <script>
-        if(typeof (Storage)!== "undefined"){
-            localStorage.setItem('asdasda', 'asdasd')
-            console.log("entre por aca y setee algo")
-        }
-    </script>
+    <script src="js/init.js"></script>
 </head>
 <body>
 <header>
@@ -23,77 +18,47 @@
 </header>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="pull-left" href="#"><img src="images/newBrand.png" ></a>
+            <a class="pull-left" href="#"><img src="images/newBrand.png"></a>
         </div>
-
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">HOME</a></li>
-                <li><a href="#">CLASICS</a></li>
-                <li><a href="#">MANGA</a></li>
-                <li><a href="#">ANIME</a></li>
-
+                <li><a href="clasics.html">CLASICS</a></li>
+                <li><a href="manga.html">MANGA</a></li>
+                <li><a href="anime.html">ANIME</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"  data-toggle="modal" data-target="#myModal">Login</a></li>
-                <li><a href="#">Register</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#login">Login</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#register">Register</a></li>
             </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        </div>
+    </div>
 </nav>
-
-<form class="form-inline">
-    <div class="form-group">
-        <label class="sr-only" for="user">Usernamame</label>
-        <div class="input-group">
-            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-            <input type="text" class="form-control" id="user" placeholder="Username">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="list-group">
+                <a href="" class="list-group-item">asd</a>
+                <a href="" class="list-group-item">das</a>
+                <a href="" class="list-group-item">dasdas</a>
+            </div>
+        </div>
+        <div class="col-md-9">
+            
         </div>
     </div>
-    <div class="form-group">
-        <label class="sr-only" for="pass">Pass</label>
-        <div class="input-group">
-            <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
-            <input type="text" class="form-control" id="pass" placeholder="Pass">
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Login</button>
-    <button type="submit" class="btn btn-primary">Cancel</button>
-</form>
-<form class="form-inline">
-    <div class="form-group">
-        <label class="sr-only" for="user">Amount (in dollars)</label>
-        <div class="input-group">
-            <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-            <input type="text" class="form-control" id="user2" placeholder="Username">
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="sr-only" for="pass">Amount (in dollars)</label>
-        <div class="input-group">
-            <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></div>
-            <input type="text" class="form-control" id="pass1" placeholder="Pass">
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Register</button>
-    <button type="submit" class="btn btn-primary">Cancel</button>
-</form>
-
-<footer class="footer">
-    <div class="container">
-       <p class="text-muted"> Follow Us on Twiter and Facebook</p>
-       <p class="text-muted"> Contact us: AR: +54 11 4109 1700 | US: +1 877 215 5230 </p>
-    </div>
-<div class="modal fade" id="myModal" tabindex="-1">
-    <div class="modal-dialog" >
+</div>
+<!--Login Modal-->
+<div class="modal fade" id="login" tabindex="-1">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
@@ -102,8 +67,8 @@
             <div class="modal-body">
                 <form class="form-horizontal" role="form">
                     <div class="form-group">
-                        <label  class="col-sm-2 control-label"
-                                for="inputEmail3">Email</label>
+                        <label class="col-sm-2 control-label"
+                               for="inputEmail3">Email</label>
                         <div class="col-sm-10">
                             <input type="email" class="form-control"
                                    id="inputEmail3" placeholder="Email"/>
@@ -111,36 +76,76 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label"
-                               for="inputPassword3" >Password</label>
+                               for="passRegister">Password</label>
                         <div class="col-sm-10">
                             <input type="password" class="form-control"
-                                   id="inputPassword3" placeholder="Password"/>
+                                   id="passRegister" placeholder="Password"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox"/> Remember me
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default">Sign in</button>
+                            <button type="submit" class="btn btn-default" data-dismiss="modal">Sign in</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
                         </div>
                     </div>
                 </form>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default"  data-dismiss="modal">Login</button>
-                <button type="button" class="btn btn-primary"  data-dismiss="modal">Cancel</button>
+
+        </div>
+    </div>
+</div>
+
+<!--Register Modal-->
+<div class="modal fade" id="register" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                <h4 class="modal-title" id="registerHeader">Register</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"
+                               for="registerUser">Username</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control"
+                                   id="registerUser" placeholder="Username"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"
+                               for="pass1">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control"
+                                   id="pass1" placeholder="Password"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label"
+                               for="pass2">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control"
+                                   id="pass2" placeholder="Password"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default" data-dismiss="modal">Register</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
 
+<footer class="footer">
+    <div class="container-fluid">
+        <p class="text-muted"> Follow Us on Twiter and Facebook</p>
+        <p class="text-muted"> Contact us: AR: +54 11 4109 1700 | US: +1 877 215 5230 </p>
+    </div>
 </footer>
 
 </body>
