@@ -1,9 +1,11 @@
-function User(username, pass, type){
+function User(username, pass){
     var username = username;
     var pass = pass;
-    var type = type;
 
     this.getUsername = function(){
         return username;
     };
+    this.getPassword = function(){
+        return pass;
+    }
 }
