@@ -22,16 +22,9 @@ function storeUsers() {
 function validateLogin() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("passLogin").value;
-    
+
 }
 
 function registerUser() {
-    var username = document.getElementById("userReg").value;
-    var pass = document.getElementById("passReg").value;
-    var user = new User(username, pass);
-    users[user.getUsername()] = user;
-    storeUsers();
-    $("#register").modal('hide');
-    //$("#notLogged").hide()
-    //$()
+    console.log("hola")
 }
