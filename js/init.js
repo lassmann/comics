@@ -22,6 +22,16 @@ function storeUsers() {
 function validateLogin() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("passLogin").value;
+    if(users[username] && users[username].getPassword() === password){
+        console.log("isisisi")
+        sessionStorage.setItem("name", username)
+        $("#login").modal('hide');
+    }else{
+
+        console.log("pass incorrecta")
+        $('#passform').after("<div class='alert alert-danger'>Incorrect password. Try again o register an account.</div>")
+
+    }
 
 }
 
