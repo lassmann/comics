@@ -1,14 +1,14 @@
 var users = [];
 var userLogged;
 (function init() {
-    if(!localStorage.getItem('users')){
-        console.log('true')
-        var user1 = new User('admin', 'admin');
-        var user2 = new User('lucas', 'lucas');
-        users[user1.getUsername()] = user1;
-        users[user2.getUsername()] = user2;
-        storeUsers();
-    }
+if(!localStorage.getItem('users')){
+    var user1 = new User('admin', 'admin');
+    var user2 = new User('lucas', 'lucas');
+    users[user1.getUsername()] = user1;
+    users[user2.getUsername()] = user2;
+    storeUsers();
+}
+
 })();
 
 function storeUsers() {
