@@ -3,10 +3,10 @@ var userLogged;
 (function init() {
     var usersArray;
     isLogged();
-    if(localStorage.getItem('users')){
-        if(isLogged()){
+    if (localStorage.getItem('users')) {
+        if (isLogged()) {
             $('.logged').show();
-        }else {
+        } else {
             $('.logged').hide()
         }
         usersArray = JSON.parse(localStorage.getItem('users'));
@@ -15,20 +15,23 @@ var userLogged;
             users[temporalUser.getUsername()] = temporalUser;
         });
         storeUsers();
-    }else{
-            var user1 = new User('admin', 'admin');
-            var user2 = new User('lucas', 'lucas');
-            users[user1.getUsername()] = user1;
-            users[user2.getUsername()] = user2;
-            storeUsers();
+    } else {
+        var user1 = new User('admin', 'admin');
+        var user2 = new User('lucas', 'lucas');
+        users[user1.getUsername()] = user1;
+        users[user2.getUsername()] = user2;
+        storeUsers();
     }
-    $('.modal').on('hidden.bs.modal', function(){
+    $("#login").modal({ show: false, backdrop: "static", keyboard: false});
+    $("#register").modal({ show: false, backdrop: "static", keyboard: false});
+
+    $('.modal').on('hidden.bs.modal', function () {
         $(this).find('form')[0].reset();
         $('.deleted').hide()
     });
 })();
 
-function isLogged(){
+function isLogged() {
     return sessionStorage.getItem('name');
 }
 
@@ -71,8 +74,8 @@ function registerUser() {
         $("#register").modal('hide')
     }
 
-    function logout(){
+    function logout() {
         sessionStorage.removeItem("name");
-        location.href="index.html";
+        location.href = "index.html";
     }
 }
