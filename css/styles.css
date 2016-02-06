@@ -28,3 +28,6 @@ header{
 .deleted{
     display: none
 }
+.logged{
+    display: none;
+}

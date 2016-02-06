@@ -2,7 +2,13 @@ var users = [];
 var userLogged;
 (function init() {
     var usersArray;
+    isLogged();
     if(localStorage.getItem('users')){
+        if(isLogged()){
+            $('.logged').show();
+        }else {
+            $('.logged').hide()
+        }
         usersArray = JSON.parse(localStorage.getItem('users'));
         usersArray.forEach(function (user) {
             var temporalUser = new User(user[0], user[1]);
@@ -16,12 +22,15 @@ var userLogged;
             users[user2.getUsername()] = user2;
             storeUsers();
     }
-
     $('.modal').on('hidden.bs.modal', function(){
         $(this).find('form')[0].reset();
         $('.deleted').hide()
     });
 })();
+
+function isLogged(){
+    return sessionStorage.getItem('name');
+}
 
 function storeUsers() {
     var store = [];
@@ -39,13 +48,15 @@ function validateLogin() {
     var password = document.getElementById("passLogin").value;
     if (users[username] && users[username].getPassword() === password) {
         sessionStorage.setItem("name", username);
-        $('#notLogged').hide();
-        $('#logged').show();
+        //$('#welcome').html('Hola');
+        document.getElementById('#welcome').innerHTML = "welcome User"
+        $('.notLogged').css('display', 'none');
+        $('.logged').show();
+        //$('.logged').css('display','inline');
         $("#login").modal('hide');
     } else {
         $('#errorPass').show();
     }
-
 }
 
 function registerUser() {
@@ -60,4 +71,8 @@ function registerUser() {
         $("#register").modal('hide')
     }
 
+    function logout(){
+        sessionStorage.removeItem("name");
+        location.href="index.html";
+    }
 }
