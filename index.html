@@ -34,7 +34,9 @@
                 <li><a href="manga.html">MANGA</a></li>
                 <li><a href="anime.html">ANIME</a></li>
             </ul>
-
+            <ul class="nav navbar-nav navbar-right deleted" id="logged">
+                <li><a href="">Hello User</a></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right" id="notLogged">
                 <li><a href="#" data-toggle="modal" data-target="#login">Login</a></li>
                 <li><a href="#" data-toggle="modal" data-target="#register">Register</a></li>
@@ -80,6 +82,7 @@
                         <label for="passLogin">Password</label>
                         <input type="password" placeholder="Password" class="form-control" id="passLogin">
                     </div>
+                    <div id="errorPass" class='alert alert-danger deleted   '>Incorrect password. Try again o <a href="#" data-toggle="modal" data-target="#register">register</a> an account.</div>
                     <button type="button" onclick="validateLogin()" class="btn btn-default">Login</button>
                     <button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
                 </form>
@@ -97,7 +100,7 @@
                 <h4 class="modal-title" id="registerHeader">Register</h4>
             </div>
             <div class="modal-body">
-                <form >
+                <form onsubmit="registerUser()">
                     <div class="form-group">
                         <label for="userReg">Username</label>
                         <input type="text" placeholder="Username" class="form-control" id="userReg">
@@ -106,7 +109,8 @@
                         <label for="passReg">Password</label>
                         <input type="password" placeholder="Password" class="form-control" id="passReg">
                     </div>
-                    <button type="button" onclick="registerUser()" class="btn btn-default">Register</button>
+                    <div class='alert alert-danger hide'>Incorrect password. Try again o register an account.</div>
+                    <button type="submit"  class="btn btn-default">Register</button>
                     <button type="button" data-dismiss="modal" class="btn btn-primary">Cancel</button>
                 </form>
             </div>

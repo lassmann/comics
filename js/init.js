@@ -1,15 +1,25 @@
 var users = [];
 var userLogged;
 (function init() {
-    if (!localStorage.getItem('users')) {
-        var user1 = new User('admin', 'admin');
-        var user2 = new User('lucas', 'lucas');
-        users[user1.getUsername()] = user1;
-        users[user2.getUsername()] = user2;
+    var usersArray;
+    if(localStorage.getItem('users')){
+        usersArray = JSON.parse(localStorage.getItem('users'));
+        usersArray.forEach(function (user) {
+            var temporalUser = new User(user[0], user[1]);
+            users[temporalUser.getUsername()] = temporalUser;
+        });
         storeUsers();
+    }else{
+            var user1 = new User('admin', 'admin');
+            var user2 = new User('lucas', 'lucas');
+            users[user1.getUsername()] = user1;
+            users[user2.getUsername()] = user2;
+            storeUsers();
     }
+
     $('.modal').on('hidden.bs.modal', function(){
         $(this).find('form')[0].reset();
+        $('.deleted').hide()
     });
 })();
 
@@ -28,11 +38,12 @@ function validateLogin() {
     var username = document.getElementById("username").value;
     var password = document.getElementById("passLogin").value;
     if (users[username] && users[username].getPassword() === password) {
-        console.log("entramos")
         sessionStorage.setItem("name", username);
+        $('#notLogged').hide();
+        $('#logged').show();
         $("#login").modal('hide');
     } else {
-        $('#passform').after("<div class='alert alert-danger'>Incorrect password. Try again o register an account.</div>")
+        $('#errorPass').show();
     }
 
 }
