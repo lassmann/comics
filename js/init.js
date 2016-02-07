@@ -1,11 +1,12 @@
 var users = [];
+var comics = [];
 var userLogged;
 (function init() {
     var usersArray;
-    isLogged();
     if (localStorage.getItem('users')) {
         if (isLogged()) {
             $('.logged').show();
+            userLogged = localStorage.getItem('name');
         } else {
             $('.logged').hide()
         }
@@ -22,14 +23,33 @@ var userLogged;
         users[user2.getUsername()] = user2;
         storeUsers();
     }
-    $("#login").modal({ show: false, backdrop: "static", keyboard: false});
-    $("#register").modal({ show: false, backdrop: "static", keyboard: false});
-
+    $("#login").modal({show: false, backdrop: "static", keyboard: false});
+    $("#register").modal({show: false, backdrop: "static", keyboard: false});
     $('.modal').on('hidden.bs.modal', function () {
         $(this).find('form')[0].reset();
         $('.deleted').hide()
     });
+    comics.push(new Comic('Guardians', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 2, 2000));
+    comics.push(new Comic('Nova', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 2, 2000));
+    comics.push(new Comic('Ovi Wan', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 2, 2000));
+    comics.push(new Comic('Scarlet Witch', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 2, 2000));
+    comics.push(new Comic('Star Wars', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 2, 2000));
+    comics.push(new Comic('The Vision', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 2, 2000));
+    comics.push(new Comic('Wolverine', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 2, 2000));
+    comics.push(new Comic('Spidev', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 2, 2000));
+    comics.push(new Comic('Secret Wars', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 2, 2000));
+    renderComics()
 })();
+
+function renderComic() {
+    var comicContainers = document.getElementById('#comicPlace');
+    comicContainers.innerHTML = '';
+
+    comics.forEach(function (comic) {
+
+        }
+    )
+}
 
 function isLogged() {
     return sessionStorage.getItem('name');
