@@ -15,7 +15,30 @@
 <header>
     <img src="images/banner.jpg" id="banner">
 </header>
-<nav class="navbar navbar-default">
+<!--navbar not logged-->
+<nav class="navbar navbar-default notLogged">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="pull-left" href="index.html"><img src="images/newBrand.png"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="notLoggedCollapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="notLogged"><a href="#" data-toggle="modal" data-target="#login">Login</a></li>
+                <li class="notLogged"><a href="#" data-toggle="modal" data-target="#register">Register</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!--navbar logged-->
+<nav class="navbar navbar-default logged">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -36,8 +59,6 @@
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li class="notLogged"><a href="#" data-toggle="modal" data-target="#login">Login</a></li>
-                <li class="notLogged"><a href="#" data-toggle="modal" data-target="#register">Register</a></li>
                 <li class="dropdown logged">
                     <a href="#" class="dropdown-toggle" id="welcome" data-toggle="dropdown"> Welcome User<span
                             class="caret"></span></a>
@@ -51,9 +72,10 @@
         </div>
     </div>
 </nav>
+<!--here comes the comics-->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 logged">
             <div class="list-group">
                 <a href="#" onclick="orderBy('bestseller')" class="list-group-item">Bestseller </a>
                 <a href="#" onclick="orderBy('ranking')" class="list-group-item">Highest Ranking</a>
