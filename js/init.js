@@ -29,15 +29,15 @@ var userLogged;
         $(this).find('form')[0].reset();
         $('.deleted').hide()
     });
-    comics.push(new Comic('Guardians', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 2, 2000));
-    comics.push(new Comic('Nova', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/nova.jpg', 101, 2, 2000));
-    comics.push(new Comic('Ovi Wan', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/obi_wan.jpg', 101, 2, 2000));
-    comics.push(new Comic('Scarlet Witch', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/scarlet_witch.jpg', 101, 2, 2000));
-    comics.push(new Comic('Star Wars', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/star_wars.jpg', 101, 2, 2000));
-    comics.push(new Comic('The Vision', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/the_vision.jpg', 101, 2, 2000));
-    comics.push(new Comic('Wolverine', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/wolverine.jpg', 101, 2, 2000));
-    comics.push(new Comic('Spidev', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/spydev.jpg', 101, 2, 2000));
-    comics.push(new Comic('Secret Wars', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/secret_wars.jpg', 101, 2, 2000));
+    comics.push(new Comic('Guardians', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 4, 66));
+    comics.push(new Comic('Nova', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/nova.jpg', 300, 4, 99));
+    comics.push(new Comic('Ovi Wan', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/obi_wan.jpg', 90, 9, 344));
+    comics.push(new Comic('Scarlet Witch', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/scarlet_witch.jpg', 80, 7, 6777));
+    comics.push(new Comic('Star Wars', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/star_wars.jpg', 533, 5, 3434));
+    comics.push(new Comic('The Vision', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/the_vision.jpg', 6000, 6, 768));
+    comics.push(new Comic('Wolverine', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/wolverine.jpg', 350, 8, 345));
+    comics.push(new Comic('Spidev', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/spydev.jpg', 40, 9, 2000));
+    comics.push(new Comic('Secret Wars', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/secret_wars.jpg', 1265, 9, 3400));
     renderComics(comics);
 })();
 
@@ -49,17 +49,14 @@ function renderComics(arrayComics) {
     arrayComics.forEach(function (comic) {
             container = document.createElement("div");
             container.className = "col-md-4 lucas";
-
             title = document.createElement("h4");
             title.innerHTML = comic.getTitle();
-
             anchor = document.createElement("a");
             anchor.href = "#";
-            anchor.title = "See More"
-            //anchor.setAttribute("onclick", "renderOneComic(collection.getComic('"+title.innerHTML+"'))");
+            anchor.title = "See More";
             image = document.createElement("img");
             image.src = comic.getImage();
-            image.className = "lucas2"
+            image.className = "lucas2";
             anchor.appendChild(image);
 
             container.appendChild(title);
@@ -90,7 +87,7 @@ function validateLogin() {
     var password = document.getElementById("passLogin").value;
     if (users[username] && users[username].getPassword() === password) {
         sessionStorage.setItem("name", username);
-        document.getElementById('#welcome').innerHTML = "welcome User"
+        document.getElementById('#welcome').innerHTML = "welcome User";
         $('.notLogged').css('display', 'none');
         $('.logged').show();
         $("#login").modal('hide');
@@ -121,9 +118,30 @@ function registerUser() {
         storeUsers();
         $("#register").modal('hide')
     }
-
-    function logout() {
-        sessionStorage.removeItem("name");
-        location.href = "index.html";
+}
+function logout() {
+    sessionStorage.removeItem("name");
+    location.href = "index.html";
+}
+function orderBy(typeOrder){
+    if(typeOrder === 'bestseller'){
+        comics.sort(function (a,b) {
+            return a.getSells() < b.getSells()
+        });
+        renderComics(comics)
     }
+    if(typeOrder === 'ranking'){
+        comics.sort(function (a,b) {
+            return a.getRanking() < b.getRanking()
+        });
+        renderComics(comics)
+    }
+
+    if(typeOrder === 'searches'){
+        comics.sort(function (a,b) {
+            return a.getSearches() < b.getSearches()
+        });
+        renderComics(comics)
+    }
+
 }

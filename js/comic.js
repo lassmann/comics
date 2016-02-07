@@ -18,6 +18,9 @@ function Comic (title, description, image, sells, ranking, searches){
     this.getSells = function () {
         return sells;
     };
+    this.getRanking = function () {
+        return ranking;
+    };
     this.getSearches = function () {
         return searches;
     };
