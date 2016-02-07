@@ -30,23 +30,42 @@ var userLogged;
         $('.deleted').hide()
     });
     comics.push(new Comic('Guardians', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 2, 2000));
-    comics.push(new Comic('Nova', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 2, 2000));
-    comics.push(new Comic('Ovi Wan', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 2, 2000));
-    comics.push(new Comic('Scarlet Witch', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 2, 2000));
-    comics.push(new Comic('Star Wars', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 2, 2000));
-    comics.push(new Comic('The Vision', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 2, 2000));
-    comics.push(new Comic('Wolverine', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 2, 2000));
-    comics.push(new Comic('Spidev', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 2, 2000));
-    comics.push(new Comic('Secret Wars', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/guardians.jpg', 101, 2, 2000));
-    renderComics()
+    comics.push(new Comic('Nova', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/nova.jpg', 101, 2, 2000));
+    comics.push(new Comic('Ovi Wan', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/obi_wan.jpg', 101, 2, 2000));
+    comics.push(new Comic('Scarlet Witch', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/scarlet_witch.jpg', 101, 2, 2000));
+    comics.push(new Comic('Star Wars', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/star_wars.jpg', 101, 2, 2000));
+    comics.push(new Comic('The Vision', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/the_vision.jpg', 101, 2, 2000));
+    comics.push(new Comic('Wolverine', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/wolverine.jpg', 101, 2, 2000));
+    comics.push(new Comic('Spidev', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/spydev.jpg', 101, 2, 2000));
+    comics.push(new Comic('Secret Wars', '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'images/comics/secret_wars.jpg', 101, 2, 2000));
+    renderComics(comics);
 })();
 
-function renderComic() {
-    var comicContainers = document.getElementById('#comicPlace');
+function renderComics(arrayComics) {
+    var comicContainers, container, title, anchor, image;
+    comicContainers = document.getElementById('comicPlace');
     comicContainers.innerHTML = '';
 
-    comics.forEach(function (comic) {
+    arrayComics.forEach(function (comic) {
+            container = document.createElement("div");
+            container.className = "col-md-4 lucas";
 
+            title = document.createElement("h4");
+            title.innerHTML = comic.getTitle();
+
+            anchor = document.createElement("a");
+            anchor.href = "#";
+            anchor.title = "See More"
+            //anchor.setAttribute("onclick", "renderOneComic(collection.getComic('"+title.innerHTML+"'))");
+            image = document.createElement("img");
+            image.src = comic.getImage();
+            image.className = "lucas2"
+            anchor.appendChild(image);
+
+            container.appendChild(title);
+            container.appendChild(anchor);
+
+            comicContainers.appendChild(container);
         }
     )
 }
@@ -71,15 +90,24 @@ function validateLogin() {
     var password = document.getElementById("passLogin").value;
     if (users[username] && users[username].getPassword() === password) {
         sessionStorage.setItem("name", username);
-        //$('#welcome').html('Hola');
         document.getElementById('#welcome').innerHTML = "welcome User"
         $('.notLogged').css('display', 'none');
         $('.logged').show();
-        //$('.logged').css('display','inline');
         $("#login").modal('hide');
     } else {
         $('#errorPass').show();
     }
+}
+
+function searchComics() {
+    var coincidences = [];
+    var search = document.getElementById('searchInput').value;
+    comics.forEach(function (comic) {
+        if (search.toUpperCase() === comic.getTitle().toUpperCase()) {
+            coincidences.push(comic)
+        }
+    });
+    renderComics(coincidences);
 }
 
 function registerUser() {
