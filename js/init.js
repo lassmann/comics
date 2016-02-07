@@ -3,6 +3,7 @@ var comics = [];
 var userLogged;
 (function init() {
     var usersArray;
+    var url = window.location;
     if (localStorage.getItem('users')) {
         if (isLogged()) {
             $('.logged').show();
@@ -23,6 +24,11 @@ var userLogged;
         users[user2.getUsername()] = user2;
         storeUsers();
     }
+
+    $('ul.nav a[href="'+ url +'"]').parent().addClass('active');
+    $('ul.nav a').filter(function() {
+        return this.href == url;
+    }).parent().addClass('active');
     $("#login").modal({show: false, backdrop: "static", keyboard: false});
     $("#register").modal({show: false, backdrop: "static", keyboard: false});
     $('.modal').on('hidden.bs.modal', function () {
