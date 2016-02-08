@@ -37,10 +37,10 @@ var userLogged;
         storeUsers();
     }
 
-    $('ul.nav a[href="'+ url +'"]').parent().addClass('active');
-    $('ul.nav a').filter(function() {
-        return this.href == url;
-    }).parent().addClass('active');
+    //$('ul.nav a[href="'+ url +'"]').parent().addClass('active');
+    //$('ul.nav a').filter(function() {
+    //    return this.href == url;
+    //}).parent().addClass('active');
     $("#login").modal({show: false, backdrop: "static", keyboard: false});
     $("#register").modal({show: false, backdrop: "static", keyboard: false});
     $('.modal').on('hidden.bs.modal', function () {
